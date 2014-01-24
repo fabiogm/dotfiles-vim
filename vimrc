@@ -18,6 +18,7 @@ set nocompatible               " be iMproved
 filetype off                   " required!
 
 syntax enable
+set backspace=2
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -25,26 +26,11 @@ Bundle 'gmarik/vundle'
 
 " Put Bundles here
 Bundle 'altercation/vim-colors-solarized'
-" Bundle 'Lokaltog/vim-powerline'
-Bundle 'Shougo/neocomplcache'
 Bundle 'scrooloose/nerdtree'
-Bundle 'chazy/cscope_maps'
 Bundle 'msanders/snipmate.vim'
-Bundle 'nvie/vim-flake8'
+Bundle 'Valloric/YouCompleteMe'
 
 filetype plugin indent on     " required!
-
-" Configurations for Bundles
-let g:acp_enableAtStartup = 0				" Disable AutoComplPop.
-let g:neocomplcache_enable_at_startup = 1		" Use neocomplcache.
-let g:neocomplcache_enable_camel_case_completion = 1	" Use camel case completion.
-let g:neocomplcache_enable_underbar_completion = 1	" Use underbar completion.
-let g:neocomplcache_min_syntax_length = 3		" Set minimum syntax keyword length.
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-let g:neocomplcache_enable_auto_select = 1
-let g:neocomplcache_max_list = 5			" Maximum displayed items
-
-" let g:Powerline_colorscheme = 'skwp'
 
 " Shell like behavior(not recommended) (but I like it!).
 set completeopt+=longest
@@ -60,12 +46,14 @@ set number   " show line numbers
 
 set autoindent
 set noexpandtab
-set tabstop=8
-set shiftwidth=8
+set tabstop=4
+set shiftwidth=4
+
+" Set tags file. Search in the current directory and then walks up the tree.
+set tags=./tags;/
 
 set list
 set listchars=tab:→\ ,trail:.,extends:#,nbsp:.
-
 
 " Highlight extra white spaces
 " Those lines to:
@@ -93,32 +81,24 @@ set wmh=0			" sets the minimum window height to 0
 " To replace spaces with tabs :set noet|retab!
 " Following commands are to set filetype specifics like ruby files to be
 " indented with tabs of 2 spaces.
-au BufNewFile,BufRead *.rb set filetype=ruby expandtab shiftwidth=4 tabstop=4
-au BufNewFile,BufRead *.js,*.js.rb,*.js.erb set filetype=javascript noexpandtab shiftwidth=4 tabstop=4
-au BufNewFile,BufRead *.less set filetype=less noexpandtab shiftwidth=4 tabstop=4
-au BufNewFile,BufRead *.haml set filetype=haml expandtab shiftwidth=2 tabstop=2
-au BufNewFile,BufRead *.py,*.pm set filetype=python expandtab shiftwidth=4 tabstop=4
+au BufNewFile,BufRead *.rb set filetype=ruby expandtab shiftwidth=2 tabstop=2
+"au BufNewFile,BufRead *.js,*.js.rb,*.js.erb set filetype=javascript noexpandtab shiftwidth=4 tabstop=4
+"au BufNewFile,BufRead *.less set filetype=less noexpandtab shiftwidth=4 tabstop=4
+"au BufNewFile,BufRead *.haml set filetype=haml expandtab shiftwidth=2 tabstop=2
+"au BufNewFile,BufRead *.py,*.pm set filetype=python expandtab shiftwidth=4 tabstop=4
 
 " Enable omni completion.
-au FileType css setlocal omnifunc=csscomplete#CompleteCSS
-au FileType c set omnifunc=ccomplete#Complete
+"au FileType css setlocal omnifunc=csscomplete#CompleteCSS
+"au FileType c set omnifunc=ccomplete#Complete
 
 au FileType ruby set omnifunc=rubycomplete#Complete
 au FileType ruby let g:rubycomplete_buffer_loading=1
 au FileType ruby let g:rubycomplete_classes_in_global=1
 
-" Set Flake8 to run when save
-autocmd BufWritePost *.py call Flake8()
-
 " use solarized by default
 set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized
-
-" let g:Powerline_colorscheme = 'skwp'
-" let g:Powerline_theme='short'
-" let g:Powerline_colorscheme='solarized256_dark'
-" let g:Powerline_symbols = 'fancy'
 
 " NERDTree configuration
 au VimEnter * NERDTree
@@ -205,7 +185,4 @@ nnoremap <silent> <Leader>bD :Bclose!<CR>
 
 " Rewrite bg color for the set list
 hi SpecialKey ctermbg=234
-set nolist
-set encoding=utf-8
-
 set nolist
