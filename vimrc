@@ -28,7 +28,7 @@ Bundle 'gmarik/vundle'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/nerdtree'
 Bundle 'msanders/snipmate.vim'
-Bundle 'Valloric/YouCompleteMe'
+Bundle 'davidhalter/jedi-vim'
 
 filetype plugin indent on     " required!
 
@@ -82,14 +82,14 @@ set wmh=0			" sets the minimum window height to 0
 " Following commands are to set filetype specifics like ruby files to be
 " indented with tabs of 2 spaces.
 au BufNewFile,BufRead *.rb set filetype=ruby expandtab shiftwidth=2 tabstop=2
-"au BufNewFile,BufRead *.js,*.js.rb,*.js.erb set filetype=javascript noexpandtab shiftwidth=4 tabstop=4
-"au BufNewFile,BufRead *.less set filetype=less noexpandtab shiftwidth=4 tabstop=4
-"au BufNewFile,BufRead *.haml set filetype=haml expandtab shiftwidth=2 tabstop=2
-"au BufNewFile,BufRead *.py,*.pm set filetype=python expandtab shiftwidth=4 tabstop=4
+au BufNewFile,BufRead *.js,*.js.rb,*.js.erb set filetype=javascript noexpandtab shiftwidth=4 tabstop=4
+au BufNewFile,BufRead *.less set filetype=less noexpandtab shiftwidth=4 tabstop=4
+au BufNewFile,BufRead *.haml set filetype=haml expandtab shiftwidth=2 tabstop=2
+au BufNewFile,BufRead *.py,*.pm set filetype=python expandtab shiftwidth=4 tabstop=4
 
 " Enable omni completion.
-"au FileType css setlocal omnifunc=csscomplete#CompleteCSS
-"au FileType c set omnifunc=ccomplete#Complete
+au FileType css setlocal omnifunc=csscomplete#CompleteCSS
+au FileType c set omnifunc=ccomplete#Complete
 
 au FileType ruby set omnifunc=rubycomplete#Complete
 au FileType ruby let g:rubycomplete_buffer_loading=1
