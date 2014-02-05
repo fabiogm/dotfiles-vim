@@ -1,4 +1,5 @@
 set nocompatible
+
 " Required for Vundle
 filetype off
 
@@ -9,6 +10,11 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
 
+"Required for SnipMate
+filetype plugin on
+
+Bundle 'msanders/snipmate.vim'
+
 " Buffers
 set encoding=utf-8
 
@@ -17,9 +23,6 @@ set rulerformat=%l:%c ruler
 set shortmess=atI
 set titlestring=%f title
 set ttyfast
-
-"Required for SnipMate
-filetype plugin on
 
 " Editting
 filetype plugin indent on
