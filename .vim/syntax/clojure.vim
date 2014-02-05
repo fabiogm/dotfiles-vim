@@ -14,7 +14,6 @@
 " Suggestions and bug reports are solicited by the author.
 
 " Initializing:
-
 " For version 5.x: Clear all syntax items
 " For version 6.x: Quit when a syntax file was already loaded
 if version < 600
@@ -30,8 +29,10 @@ syn case ignore
 syn match	clojureError	![^ \t()\[\]";]*!
 syn match	clojureError	")"
 
-" Quoted and backquoted stuff
+" Hash maps
+syn region clojureHash matchgroup=Delimiter start="{" matchgroup=Delimiter end="}" contains=ALL
 
+" Quoted and backquoted stuff
 syn region clojureQuoted matchgroup=Delimiter start="['`]" end=![ \t()\[\]";]!me=e-1 contains=ALLBUT,clojureStruc,clojureSyntax,clojureFunc
 
 syn region clojureQuoted matchgroup=Delimiter start="['`](" matchgroup=Delimiter end=")" contains=ALLBUT,clojureStruc,clojureSyntax,clojureFunc
@@ -152,8 +153,8 @@ syn match	clojureConstant	,<[-a-z!$%&*/:<=>?^_~0-9+.@]*>[ \t\[\]()";],me=e-1
 syn match	clojureConstant	,<[-a-z!$%&*/:<=>?^_~0-9+.@]*>$,
 syn match	clojureError	,<[-a-z!$%&*/:<=>?^_~0-9+.@]*>[^-a-z!$%&*/:<=>?^_~0-9+.@ \t\[\]()";]\+[^ \t\[\]()";]*,
 
-" Non-quoted lists, and strings:
 
+" Non-quoted lists, and strings:
 syn region clojureStruc matchgroup=Delimiter start="(" matchgroup=Delimiter end=")" contains=ALL
 syn region clojureStruc matchgroup=Delimiter start="#(" matchgroup=Delimiter end=")" contains=ALL
 
@@ -164,15 +165,13 @@ syn region clojureStruc matchgroup=Delimiter start="#\[" matchgroup=Delimiter en
 syn region clojureString start=+\%(\\\)\@<!"+ skip=+\\[\\"]+ end=+"+
 
 " Comments:
-
 syn match	clojureComment	";.*$"
-
 
 " Writing out the complete description of Scheme numerals without
 " using variables is a day's work for a trained secretary...
-
 syn match	clojureOther	![+-][ \t\[\]()";]!me=e-1
 syn match	clojureOther	![+-]$!
+
 "
 " This is a useful lax approximation:
 syn match	clojureNumber	"[-#+.]\=[0-9][-#+/0-9a-f@i.boxesfdl]*"
