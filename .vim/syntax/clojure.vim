@@ -75,12 +75,29 @@ syn keyword clojureSyntax complement partial juxt memoize fnil every-pred some-f
 syn keyword clojureSyntax def defmacro defmethod defmulti defonce defrecord
 syn keyword clojureSyntax declare intern binding find-var var
 
+syn keyword clojureSyntax definterface
+
+syn keyword clojureSyntax ns
+
+syn keyword clojureSyntax doall
+
+syn keyword clojureSyntax seq vals keys rseq subseq rsubseq
+syn keyword clojureSyntax lazy-seq repeatedly iterate
+syn keyword clojureSyntax repeat range
+
+syn keyword clojureSyntax first second last rest next ffirst nfirst fnext nnext nth nthnext
+syn keyword clojureSyntax rand-nth when-first max-key min-key
+
 syn keyword clojureSyntax and or if cond case define let let* letrec
 syn keyword clojureSyntax begin do delay set! else =>
 syn keyword clojureSyntax quote quasiquote unquote unquote-splicing
 syn keyword clojureSyntax define-syntax let-syntax letrec-syntax syntax-rules
-" R6RS
-syn keyword clojureSyntax define-record-type fields protocol
+
+syn keyword clojureSyntax defprotocol
+
+syn keyword clojureSyntax str
+
+syn keyword clojureSyntax hash-map merge
 
 syn keyword clojureFunc not boolean? eq? eqv? equal? pair? cons car cdr set-car!
 syn keyword clojureFunc set-cdr! caar cadr cdar cddr caaar caadr cadar caddr
@@ -106,19 +123,10 @@ syn keyword clojureFunc string-set! string=? string-ci=? string<? string-ci<?
 syn keyword clojureFunc string>? string-ci>? string<=? string-ci<=? string>=?
 syn keyword clojureFunc string-ci>=? substring string-append vector? make-vector
 syn keyword clojureFunc vector vector-length vector-ref vector-set! procedure?
-syn keyword clojureFunc apply map for-each call-with-current-continuation
+
+syn keyword clojureFunc apply map reduce for-each call-with-current-continuation
+
 syn keyword clojureFunc call-with-input-file call-with-output-file input-port?
-syn keyword clojureFunc output-port? current-input-port current-output-port
-syn keyword clojureFunc open-input-file open-output-file close-input-port
-syn keyword clojureFunc close-output-port eof-object? read read-char peek-char
-syn keyword clojureFunc write display newline write-char call/cc
-syn keyword clojureFunc list-tail string->list list->string string-copy
-syn keyword clojureFunc string-fill! vector->list list->vector vector-fill!
-syn keyword clojureFunc force with-input-from-file with-output-to-file
-syn keyword clojureFunc char-ready? load transcript-on transcript-off eval
-syn keyword clojureFunc dynamic-wind port? values call-with-values
-syn keyword clojureFunc scheme-report-environment null-environment
-syn keyword clojureFunc interaction-environment
 " R6RS
 syn keyword clojureFunc make-eq-hashtable make-eqv-hashtable make-hashtable
 syn keyword clojureFunc hashtable? hashtable-size hashtable-ref hashtable-set!
