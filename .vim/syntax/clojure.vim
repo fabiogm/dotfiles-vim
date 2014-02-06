@@ -30,6 +30,8 @@ syn match	clojureError	![^ \t()\[\]";]*!
 syn match	clojureError	")"
 
 " Hash maps
+" FIXME: Not working properly. Sometimes an end of hash-map will be taken as
+" an error. Don't know why.
 syn region clojureHash matchgroup=Delimiter start="{" matchgroup=Delimiter end="}" contains=ALL
 
 " Quoted and backquoted stuff
@@ -73,69 +75,47 @@ syn keyword clojureSyntax fn defn defn- definline identity constantly memfn comp
 syn keyword clojureSyntax complement partial juxt memoize fnil every-pred some-fn
 
 syn keyword clojureSyntax def defmacro defmethod defmulti defonce defrecord
-syn keyword clojureSyntax declare intern binding find-var var
+syn keyword clojureSyntax declare intern binding find-var var type
 
 syn keyword clojureSyntax definterface
 
 syn keyword clojureSyntax ns
 
-syn keyword clojureSyntax doall
+syn keyword clojureSyntax do let letfn quote var loop recur throw try monitor-enter monitor-exit
+
+syn keyword clojureSyntax doseq dorun doall
 
 syn keyword clojureSyntax seq vals keys rseq subseq rsubseq
 syn keyword clojureSyntax lazy-seq repeatedly iterate
 syn keyword clojureSyntax repeat range
 
-syn keyword clojureSyntax first second last rest next ffirst nfirst fnext nnext nth nthnext
+syn keyword clojureSyntax cons first second last rest next ffirst nfirst fnext nnext nth nthnext
 syn keyword clojureSyntax rand-nth when-first max-key min-key
 
-syn keyword clojureSyntax and or if cond case define let let* letrec
-syn keyword clojureSyntax begin do delay set! else =>
-syn keyword clojureSyntax quote quasiquote unquote unquote-splicing
-syn keyword clojureSyntax define-syntax let-syntax letrec-syntax syntax-rules
+syn keyword clojureSyntax and or if cond case 
 
-syn keyword clojureSyntax defprotocol
-
-syn keyword clojureSyntax str
+syn keyword clojureSyntax defprotocol defrecord deftype defmulti defmethod
 
 syn keyword clojureSyntax hash-map merge
 
-syn keyword clojureFunc not boolean? eq? eqv? equal? pair? cons car cdr set-car!
-syn keyword clojureFunc set-cdr! caar cadr cdar cddr caaar caadr cadar caddr
-syn keyword clojureFunc cdaar cdadr cddar cdddr caaaar caaadr caadar caaddr
-syn keyword clojureFunc cadaar cadadr caddar cadddr cdaaar cdaadr cdadar cdaddr
-syn keyword clojureFunc cddaar cddadr cdddar cddddr null? list? list length
-syn keyword clojureFunc append reverse list-ref memq memv member assq assv assoc
-syn keyword clojureFunc symbol? symbol->string string->symbol number? complex?
-syn keyword clojureFunc real? rational? integer? exact? inexact? = < > <= >=
-syn keyword clojureFunc zero? positive? negative? odd? even? max min + * - / abs
-syn keyword clojureFunc quotient remainder modulo gcd lcm numerator denominator
-syn keyword clojureFunc floor ceiling truncate round rationalize exp log sin cos
-syn keyword clojureFunc tan asin acos atan sqrt expt make-rectangular make-polar
-syn keyword clojureFunc real-part imag-part magnitude angle exact->inexact
-syn keyword clojureFunc inexact->exact number->string string->number char=?
-syn keyword clojureFunc char-ci=? char<? char-ci<? char>? char-ci>? char<=?
-syn keyword clojureFunc char-ci<=? char>=? char-ci>=? char-alphabetic? char?
-syn keyword clojureFunc char-numeric? char-whitespace? char-upper-case?
-syn keyword clojureFunc char-lower-case?
-syn keyword clojureFunc char->integer integer->char char-upcase char-downcase
-syn keyword clojureFunc string? make-string string string-length string-ref
-syn keyword clojureFunc string-set! string=? string-ci=? string<? string-ci<?
-syn keyword clojureFunc string>? string-ci>? string<=? string-ci<=? string>=?
-syn keyword clojureFunc string-ci>=? substring string-append vector? make-vector
-syn keyword clojureFunc vector vector-length vector-ref vector-set! procedure?
+syn keyword clojureSyntax count empty not-empty into conj walk prewalk prewalk-demo prewalk-replace
+syn keyword clojureSyntax postwalk postwalk-demo postwalk-replace
+syn keyword clojureSyntax distinct? empty? every? not-every? some not-any?
+syn keyword clojureSyntax sequential? associative? sorted? counted? reversible?
 
-syn keyword clojureFunc apply map reduce for-each call-with-current-continuation
+syn keyword clojureSyntax coll? list? vector? set? map? seq? symbol?
 
-syn keyword clojureFunc call-with-input-file call-with-output-file input-port?
-" R6RS
-syn keyword clojureFunc make-eq-hashtable make-eqv-hashtable make-hashtable
-syn keyword clojureFunc hashtable? hashtable-size hashtable-ref hashtable-set!
-syn keyword clojureFunc hashtable-delete! hashtable-contains? hashtable-update!
-syn keyword clojureFunc hashtable-copy hashtable-clear! hashtable-keys
-syn keyword clojureFunc hashtable-entries hashtable-equivalence-function hashtable-hash-function
-syn keyword clojureFunc hashtable-mutable? equal-hash string-hash string-ci-hash symbol-hash 
-syn keyword clojureFunc find for-all exists filter partition fold-left fold-right
-syn keyword clojureFunc remp remove remv remq memp assp cons*
+syn keyword clojureSyntax and or xor not flip set shift-right shift-left and-not clear test 
+
+syn keyword clojureFunc = < > <= >=
+syn keyword clojureFunc zero? pos? neg? odd? even? max min + * - / quot rem mod inc dec max min 
+
+syn keyword clojureFunc str format get subs compare join escape split split-lines repace replace-first reverse
+syn keyword clojureFunc re-find re-seq re-matches re-pattern re-matcher re-groups
+syn keyword clojureFunc re-quote-replacement 
+
+syn keyword clojureFunc vector vec vector-of vector?
+syn keyword clojureFunc apply map reduce for-each into
 
 " ... so that a single + or -, inside a quoted context, would not be
 " interpreted as a number (outside such contexts, it's a clojureFunc)
