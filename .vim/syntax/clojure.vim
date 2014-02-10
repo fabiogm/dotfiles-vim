@@ -82,6 +82,8 @@ syn keyword clojureNamespace ns
 
 syn keyword clojureSyntax do let letfn quote var loop recur throw try monitor-enter monitor-exit
 
+syn keyword clojureSyntax for while
+
 syn keyword clojureSyntax doseq dorun doall
 
 syn keyword clojureSyntax seq vals keys rseq subseq rsubseq

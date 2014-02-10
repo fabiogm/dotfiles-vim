@@ -42,7 +42,9 @@ au BufNewFile,BufRead *.c set filetype=c cindent expandtab shiftwidth=4 tabstop=
 au BufNewFile,BufRead *.js set filetype=javascript expandtab shiftwidth=4 tabstop=4
 au BufNewFile,BufRead *.scm set filetype=scheme lisp expandtab shiftwidth=2 tabstop=2 autoindent
 au BufNewFile,BufRead *.rkt set filetype=racket lisp expandtab shiftwidth=2 tabstop=2 autoindent
-au BufNewFile,BufRead *.clj set filetype=clojure lisp expandtab shiftwidth=2 tabstop=2 autoindent
+" TODO. All the indentation for Clojure files will be placed in a indent plugin
+" file.
+au BufNewFile,BufRead *.clj set filetype=clojure 
 
 au FileType ruby set omnifunc=rubycomplete#Complete
 au FileType ruby let g:rubycomplete_buffer_loading=1
