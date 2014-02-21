@@ -20,15 +20,17 @@ Bundle 'msanders/snipmate.vim'
 set encoding=utf-8
 
 " Display
-"set rulerformat=%l:%c ruler
+set rulerformat=%l:%c ruler
 set shortmess=atI
 set titlestring=%f title
 set ttyfast
+set number
 
 " Editting
 filetype plugin indent on
 set pastetoggle=<f2>
 syntax on
+set backspace=2
 
 " Searching
 set incsearch
@@ -58,7 +60,7 @@ au FileType python let g:rubycomplete_classes_in_global=1
 au FileType python setlocal makeprg=python\ %
 
 " use solarized by default
- set background=light
+ set background=dark
  let g:solarized_termcolors=256
  colorscheme solarized
 
@@ -159,6 +161,9 @@ endfunction
 command! -bang -complete=buffer -nargs=? Bclose call <SID>Bclose('<bang>', '<args>')
 nnoremap <silent> <Leader>bd :Bclose<CR>
 nnoremap <silent> <Leader>bD :Bclose!<CR>
+
+" Wipe out CR in DOS line endings
+command Wipecr bufdo %s/\r\+$//e
 
 " Rewrite bg color for the set list
 hi SpecialKey ctermbg=234
