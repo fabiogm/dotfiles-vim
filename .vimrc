@@ -7,6 +7,7 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+Bundle 'altercation/vim-colors-solarized'
 Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
 
@@ -55,6 +56,11 @@ au FileType python set omnifunc=pythoncomplete#Complete
 au FileType python let g:rubycomplete_buffer_loading=1
 au FileType python let g:rubycomplete_classes_in_global=1
 au FileType python setlocal makeprg=python\ %
+
+" use solarized by default
+ set background=light
+ let g:solarized_termcolors=256
+ colorscheme solarized
 
 " NERDTree configuration
 au VimEnter * NERDTree
