@@ -45,9 +45,12 @@ au BufNewFile,BufRead *.c set filetype=c cindent expandtab shiftwidth=4 tabstop=
 au BufNewFile,BufRead *.js set filetype=javascript expandtab shiftwidth=4 tabstop=4
 au BufNewFile,BufRead *.scm set filetype=scheme lisp expandtab shiftwidth=2 tabstop=2 autoindent
 au BufNewFile,BufRead *.rkt set filetype=racket lisp expandtab shiftwidth=2 tabstop=2 autoindent
-" TODO. All the indentation for Clojure files will be placed in a indent plugin
-" file.
-au BufNewFile,BufRead *.clj set filetype=clojure 
+au BufNewFile,BufRead *.R set expandtab shiftwidth=4 tabstop=4
+au BufNewFile,BufRead *.java set expandtab shiftwidth=4 tabstop=4
+au BufNewFile,BufRead *.hql set filetype=sql expandtab shiftwidth=4 tabstop=4
+au BufNewFile,BufRead *.sh set expandtab shiftwidth=4 tabstop=4
+au BufNewFile,BufRead *.clj set filetype=scheme lisp expandtab shiftwidth=2 tabstop=2 autoindent
+au BufNewFile,BufRead *.html set filetype=html expandtab shiftwidth=2 tabstop=2 autoindent
 
 au FileType ruby set omnifunc=rubycomplete#Complete
 au FileType ruby let g:rubycomplete_buffer_loading=1
@@ -164,6 +167,9 @@ nnoremap <silent> <Leader>bD :Bclose!<CR>
 
 " Wipe out CR in DOS line endings
 command Wipecr bufdo %s/\r\+$//e
+
+" Indent JSON in the current buffer (even if our file type is not JSON)
+command! -range -nargs=0 -bar JsonTool <line1>,<line2>!python -m json.tool
 
 " Rewrite bg color for the set list
 hi SpecialKey ctermbg=234

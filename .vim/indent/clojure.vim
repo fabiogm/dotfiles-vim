@@ -1,3 +1,0 @@
-"
-" TODO. Clojure indent file.
-"
