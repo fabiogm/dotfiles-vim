@@ -10,6 +10,7 @@ call vundle#rc()
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
+Bundle 'kien/ctrlp.vim'
 
 "Required for SnipMate
 filetype plugin on
@@ -25,6 +26,9 @@ set shortmess=atI
 set titlestring=%f title
 set ttyfast
 set number
+
+" Load tags file automatically
+set tags=./tags;/
 
 " Editting
 filetype plugin indent on
@@ -58,8 +62,6 @@ au FileType ruby let g:rubycomplete_classes_in_global=1
 au FileType ruby setlocal makeprg=ruby\ %
 
 au FileType python set omnifunc=pythoncomplete#Complete
-au FileType python let g:rubycomplete_buffer_loading=1
-au FileType python let g:rubycomplete_classes_in_global=1
 au FileType python setlocal makeprg=python\ %
 
 " use solarized by default
