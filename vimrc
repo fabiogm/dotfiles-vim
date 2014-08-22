@@ -22,12 +22,16 @@ Bundle 'msanders/snipmate.vim'
 " Buffers
 set encoding=utf-8
 
-" Display
-"set rulerformat=%l:%c ruler
-"set shortmess=atI
-"set titlestring=%f title
-"set ttyfast
-"set number
+set shortmess=atI
+
+set ttyfast
+
+"Always show line numbers
+set number
+
+" Instruct vim to hide buffers instead of closing them. With this we can open
+" new files without having to write unsaved changes in current buffer.
+set hidden
 
 " Load tags file automatically
 set tags=./tags;/
